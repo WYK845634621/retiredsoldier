@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://getbootstrap.com/docs/4.0/examples/dashboard/ -->
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>培训公司列表</title>
+		<!-- Bootstrap core CSS -->
+		<link href="asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.css}" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="asserts/css/dashboard.css" th:href="@{/asserts/css/dashboard.css}" rel="stylesheet">
+		<style type="text/css">
+			/* Chart.js */
+			
+			@-webkit-keyframes chartjs-render-animation {
+				from {
+					opacity: 0.99
+				}
+				to {
+					opacity: 1
+				}
+			}
+			
+			@keyframes chartjs-render-animation {
+				from {
+					opacity: 0.99
+				}
+				to {
+					opacity: 1
+				}
+			}
+			
+			.chartjs-render-monitor {
+				-webkit-animation: chartjs-render-animation 0.001s;
+				animation: chartjs-render-animation 0.001s;
+			}
+		</style>
+	</head>
+
+	<body>
+	<!--引入抽取的topbar-->
+	<!--模板名：会使用thymeleaf的前后缀配置规则进行解析-->
+	<div th:replace="commons/bar::topbar"></div>
+
+		<div class="container-fluid">
+			<div class="row">
+				<!--引入侧边栏-->
+				<div th:replace="commons/bar::#sidebar(activeUri='trains')"></div>
+				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+					<h2><a class="btn btn-sm btn-success" href="soldier" th:href="@{/train}">士兵添加</a></h2>
+					<div class="table-responsive">
+						<table class="table table-striped table-sm">
+							<thead>
+								<tr>
+									<th>编号</th>
+									<th>培训项目</th>
+									<th>是否花钱</th>
+									<th>培训地点</th>
+									<th>培训时长</th>
+									<th>培训优势</th>
+									<th>创建时间</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+							<tr th:each="train:${page.records}">
+								<td th:text="${train.id.substring(0,5)}"></td>
+								<td th:text="${train.trainProject}"></td>
+								<td th:text="${train.cost}==0?'否':'是'"></td>
+								<td th:text="${train.trainArea}"></td>
+								<td th:text="${train.trainTime}"></td>
+								<td th:text="${train.advantage}"></td>
+								<td th:text="${#dates.format(train.createTime, 'yyyy-MM-dd HH:mm')}"></td>
+								<td>
+									<a class="btn btn-sm btn-primary" th:href="@{/train/}+${train.id}">编辑</a>
+									<a class="btn btn-sm btn-danger" th:href="@{/train/delete/}+${train.id}">删除</a>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="row">
+						<!-- 分页数据 -->
+						<div class="col-md-4">
+							当前 <span th:text="${page.current}"></span> 页,共 <span th:text="${page.pages}"></span> 页,存在 <span th:text="${page
+							.total}"></span> 条记录
+						</div>
+						<!-- 分页条 -->
+						<div class="col-md-4 offset-md-4" >
+							<nav aria-label="Page navigation">
+								<ul class="pagination">
+									<li class="page-item" th:class="${page.current==1}?'page-item disabled':''"><a class="page-link" href="#" th:href="@{/trains} + '?pn=' +${page.current-1} ">Previous</a></li>
+									<li th:if="${page.current}-2>=1" class="page-item" ><a class="page-link" href="#" th:text="${page.current}-2" th:href="@{/trains} + '?pn=' +${page.current-2} "></a></li>
+									<li th:if="${page.current}-1>=1" class="page-item" ><a class="page-link" href="#" th:text="${page.current}-1" th:href="@{/trains} + '?pn=' +${page.current-1} "></a></li>
+									<li class="page-item active"><a class="page-link" href="#" th:text="${page.current}" th:href="@{/trains} + '?pn=' +${page.current} "></a></li>
+									<li th:if="${page.current}+1<=${page.pages}" class="page-item"><a class="page-link" href="#" th:text="${page.current}+1" th:href="@{/trains} + '?pn=' +${page.current+1} "></a></li>
+									<li th:if="${page.current}+2<=${page.pages}" class="page-item"><a class="page-link" href="#" th:text="${page.current}+2" th:href="@{/trains} + '?pn=' +${page.current+2} "></a></li>
+									<li class="page-item" th:class="${page.current==page.pages}?'page-item disabled':''"><a class="page-link" href="#" th:href="@{/trains} + '?pn=' +${page.current+1} ">Next</a></li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</main>
+				<form id="deleteSoldierForm"  method="post">
+					<input type="hidden" name="_method" value="delete"/>
+				</form>
+			</div>
+		</div>
+
+		<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script type="text/javascript" src="asserts/js/jquery-3.2.1.slim.min.js" th:src="@{/webjars/jquery/3.3.1/jquery.js}"></script>
+	<script type="text/javascript" src="asserts/js/popper.min.js" th:src="@{/webjars/popper.js/1.11.1/dist/popper.js}"></script>
+	<script type="text/javascript" src="asserts/js/bootstrap.min.js" th:src="@{/webjars/bootstrap/4.0.0/js/bootstrap.js}"></script>
+
+	<!-- Icons -->
+	<script type="text/javascript" src="asserts/js/feather.min.js" th:src="@{/asserts/js/feather.min.js}"></script>
+		<script>
+			feather.replace()
+		</script>
+
+		<!-- Graphs -->
+		<script>
+            $(".deleteBtn").click(function(){
+                //删除当前士兵的
+                $("#deleteSoldierForm").attr("action",$(this).attr("del_uri")).submit();
+                return false;
+            });
+		</script>
+
+
+	</body>
+
+</html>

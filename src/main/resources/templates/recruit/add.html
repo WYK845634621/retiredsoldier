@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://getbootstrap.com/docs/4.0/examples/dashboard/ -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>招聘信息操作</title>
+		<!-- Bootstrap core CSS -->
+		<link href="asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.css}" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="asserts/css/dashboard.css" th:href="@{/asserts/css/dashboard.css}" rel="stylesheet">
+		<style type="text/css">
+			/* Chart.js */
+			
+			@-webkit-keyframes chartjs-render-animation {
+				from {
+					opacity: 0.99
+				}
+				to {
+					opacity: 1
+				}
+			}
+			
+			@keyframes chartjs-render-animation {
+				from {
+					opacity: 0.99
+				}
+				to {
+					opacity: 1
+				}
+			}
+			
+			.chartjs-render-monitor {
+				-webkit-animation: chartjs-render-animation 0.001s;
+				animation: chartjs-render-animation 0.001s;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--引入抽取的topbar-->
+		<!--模板名：会使用thymeleaf的前后缀配置规则进行解析-->
+		<div th:replace="commons/bar::topbar"></div>
+
+		<div class="container-fluid">
+			<div class="row">
+				<!--引入侧边栏-->
+				<div th:replace="commons/bar::#sidebar(activeUri='recruits')"></div>
+
+				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+					<!--需要区分是修改还是添加；-->
+					<form th:action="@{/recruit}" method="post">
+						<!--发送put请求修改员工数据-->
+						<!--
+						1、SpringMVC中配置HiddenHttpMethodFilter;（SpringBoot自动配置好的）
+						2、页面创建一个post表单
+						3、创建一个input项，name="_method";值就是我们指定的请求方式
+						-->
+						<input type="hidden" name="_method" value="put" th:if="${recruit!=null}"/>
+						<input type="hidden" name="id" th:if="${recruit!=null}" th:value="${recruit.id}">
+						<div class="form-group">
+							<label>企业名字</label>
+							<input name="name" type="text" class="form-control col-md-4" placeholder="在此输入企业名字" th:value="${recruit!= null}?${recruit.name}">
+						</div>
+						<div class="form-group">
+							<label>招聘职位</label>
+							<input name="job" type="text" class="form-control col-md-4" placeholder="示例:java开发" th:value="${recruit!= null}?${recruit.job}">
+						</div>
+						<div class="form-group">
+							<label>职位描述</label>
+							<input name="jobDescribe" type="text" class="form-control col-md-4" placeholder="示例:协助开发完成工作" th:value="${recruit!= null}?${recruit.jobDescribe}">
+						</div>
+						<div class="form-group">
+							<label>用人要求</label>
+							<input name="requirement" type="text" class="form-control col-md-4" placeholder="在此输入具体的用人要求" th:value="${recruit!= null}?${recruit.requirement}">
+						</div>
+						<div class="form-group">
+							<label>薪水</label>
+							<input name="salary" type="text" class="form-control col-md-4" placeholder="福利待遇" th:value="${recruit!= null}?${recruit.salary}">
+						</div>
+						<div class="form-group">
+							<label>成立时长</label>
+							<input name="age" type="text" class="form-control col-md-4" placeholder="在此输入企业成立时长" th:value="${recruit!= null}?${recruit.age}">
+						</div>
+						<div class="form-group">
+							<label>企业联系电话</label>
+							<input name="phone" type="text" class="form-control col-md-4" placeholder="在此输入企业联系电话" th:value="${recruit!= null}?${recruit.phone}">
+						</div>
+						<div class="form-group">
+							<label>Email</label>
+							<input name="email" type="email" class="form-control col-md-4" placeholder="邮箱示例:zhangsan@kingstar.com" th:value="${recruit!= null}?${recruit.email}">
+						</div>
+						<div class="form-group">
+							<label>联系人</label>
+							<input name="contact" type="text" class="form-control col-md-4" placeholder="示例:刘女士" th:value="${recruit!= null}?${recruit.contact}">
+						</div>
+						<div class="form-group">
+							<label>法人身份证</label>
+							<input name="idCard" type="text" class="form-control col-md-4" placeholder="在此输入法人身份证信息" th:value="${recruit!= null}?${recruit.idCard}">
+						</div>
+						<div class="form-group">
+							<label>企业地址</label>
+							<input name="location" type="text" class="form-control col-md-4" placeholder="在此输入企业详细地址" th:value="${recruit!= null}?${recruit.location}">
+						</div>
+
+						<div class="form-group">
+							<label>是否上市</label><br/>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="radio" name="trade"  value="1" th:checked="${recruit!= null}?${recruit.trade==1}">
+								<label class="form-check-label">已上市</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="radio" name="trade"  value="0" th:checked="${recruit!= null}?${recruit.trade==0}">
+								<label class="form-check-label">未上市</label>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label>企业性质</label>
+							<select class="form-control col-md-4" name="kind">
+								<option th:selected="${recruit!= null}?${recruit.kind} == ${businesskind.name}" th:each="businesskind:${businesskinds}" th:text="${businesskind.name}"></option>
+							</select>
+						</div>
+
+
+						<button type="submit" class="btn btn-primary" th:text="${recruit!=null}?'修改':'发布'">发布</button>
+					</form>
+				</main>
+			</div>
+		</div>
+
+		<!-- Bootstrap core JavaScript
+    ================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script type="text/javascript" src="asserts/js/jquery-3.2.1.slim.min.js" th:src="@{/webjars/jquery/3.3.1/jquery.js}"></script>
+		<script type="text/javascript" src="asserts/js/popper.min.js" th:src="@{/webjars/popper.js/1.11.1/dist/popper.js}"></script>
+		<script type="text/javascript" src="asserts/js/bootstrap.min.js" th:src="@{/webjars/bootstrap/4.0.0/js/bootstrap.js}"></script>
+
+		<!-- Icons -->
+		<script type="text/javascript" src="asserts/js/feather.min.js" th:src="@{/asserts/js/feather.min.js}"></script>
+		<script>
+			feather.replace()
+		</script>
+
+	</body>
+
+</html>
