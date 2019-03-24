@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://getbootstrap.com/docs/4.0/examples/dashboard/ -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>新闻</title>
+    <!-- Bootstrap core CSS -->
+    <link href="asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="asserts/css/dashboard.css" th:href="@{/asserts/css/dashboard.css}" rel="stylesheet">
+    <style type="text/css">
+        /* Chart.js */
+
+        @-webkit-keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        .chartjs-render-monitor {
+            -webkit-animation: chartjs-render-animation 0.001s;
+            animation: chartjs-render-animation 0.001s;
+        }
+    </style>
+</head>
+
+<body>
+<div th:replace="commons/bar::topbar"></div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="commons/bar::#sidebar(activeUri='main.html')"></div>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <div class="container">
+                <h2><a class="btn btn-sm btn-success" href="soldier" th:href="@{/main.html}">返回</a></h2>
+                <br>
+                <br>
+                <p>“八一”建军节前，退役军人事务部等10部门联合印发《关于进一步加强由政府安排工作退役士兵就业安置工作的意见》（以下简称《意见》），《意见》从2018年8月1日起施行，适用于8月1日后退出现
+                    役的士兵。这是党中央决策部署组建退役军人事务部后，首个专门针对由政府安排工作退役士兵出台的政策性文件。</p>
+                <p>《意见》从提高思想认识、明确安置责任、提高补助标准、接续基本保险、落实岗位待遇、实行阳光安置、加强监督考核等方面，进一步完善政策制度，明确安置责任，体现了国家切实提升安置质量、不
+                    断优化工作流程，让退役士兵工作生活更加有保障、让军人更加受到社会尊崇的明确导向，对做好新时代退役士兵安置工作具有重要意义。</p>
+                <p>《意见》明确指出，要深刻领会习近平总书记关于退役军人工作的重要指示批示精神，“任何部门、行业和单位都不得以任何理由拒绝接收安置退役士兵。”“由政府安排工作退役士兵安置到机关、事业单位和国有企业的比例不低于80%”。要求制定具体的办法措施，形成机关、事业单位和国有企业科学合理的分类接收结构比例。对党政机关、事业单位和国有企业接收安置退役士兵也提出原则要求。由政府安排工作退役士兵普遍服役12年以上，为国防和军队建设作出过特殊贡献，保障他们实现有保障的就业，是全社会共同的
+                    政治责任，党政机关、事业单位和国有企业有责任发挥示范带头作用，主动承担安置责任。《意见》充分体现了这一指导原则。</p>
+                <p>做好由政府安排工作退役士兵就业安置工作，有岗可安是前提，岗位优质是保证。着眼于此，《意见》针对实践中存在的矛盾和问题，对国有企业接收提出明确要求，规定不得提供濒临破产或生产有困难的企业岗位以及与退役士兵安置地不在同一地区（设区市）的岗位给退役士兵，以确保退役士兵安置岗位质量，方便退役士兵工作生活。同时，规定中央企业岗位不计入属地提供
+                    的岗位数量，实现安置地政府提供的实际安置岗位数量要多于退役士兵人数，确保退役士兵有更多选择岗位的机会。</p>
+                <p>针对近年来部分地区反映的部分安置政策执行模糊，难以界定，以及户籍制度限制影响了退役士兵流动的情况，《意见》对安置地的要求作了进一步规范，明确士兵服现役期间父母户口所在地变更的，可随父母任何一方安置。经本人申请，也可在配偶或者配偶父母任何一方户口所在地安置。同时，规定县级安置任务较重的可由市级在本行政区域内统筹安排，市级安置有困难的可由省级统
+                    筹调剂安排。这一规定，将有利于帮助兵员较多、安置较重的市县完成年度安置任务，使退役士兵得到较好安置。</p>
+                <p>按照原有政策，退役士兵待安排工作期间没有基本养老保险和基本医疗保险等方面的政策保障。部分地方反映，在待安排工作期间，因突发疾病、意外伤害等原因带来的退役士兵医疗、生活保障等问题难以得到有效解决。在深入调研的基础上，《意见》明确：退役士兵待安排工作期间，以其在军队服役最后年度的缴费工资为基数，按20%的费率缴纳基本养老保险费，其中8%作为个人缴费记入个人账户，所需费用由安置地人民政府同级财政资金安排；按规定参加安置地职工基本医疗保险，单位缴费部分由安置地人民政府足额缴纳，个人缴费部分由退役士兵个人缴纳，军地相关部门协同做好保险关系接续，确保待遇连续享受。这一规定填
+                    补了退役士兵安置基本养老和医疗保险政策的空白，实现了退役前后基本养老和医疗保险接续的无缝对接，将对保障退役士兵权益起到有力支持。</p>
+                <p>《意见》围绕确保由政府安排工作退役士兵就业安置相关工作有地位、有保障、能落实，明确了多项具体保障措施。强调将此项工作列入相关表彰考核范围，加大督导检查，对有问题的单位和个人依法依规追究责任。同时，《意见》还提出对表现优秀、在不同岗位建功立业的退役士兵，要作为先进典型予以宣传表彰；对具有拒不
+                    服从安排、弄虚作假骗取待遇、被追究刑事责任等情形的退役士兵，要依法依规取消安排工作或安置待遇。</p>
+                <p>相关阅读：《关于进一步加强由政府安排工作退役士兵就业安置工作的意见》</p>
+            </div>
+
+        </main>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<script type="text/javascript" src="asserts/js/jquery-3.2.1.slim.min.js"
+        th:src="@{/webjars/jquery/3.3.1/jquery.js}"></script>
+<script type="text/javascript" src="asserts/js/popper.min.js"
+        th:src="@{/webjars/popper.js/1.11.1/dist/popper.js}"></script>
+<script type="text/javascript" src="asserts/js/bootstrap.min.js"
+        th:src="@{/webjars/bootstrap/4.0.0/js/bootstrap.js}"></script>
+
+<!-- Icons -->
+<script type="text/javascript" src="asserts/js/feather.min.js" th:src="@{/asserts/js/feather.min.js}"></script>
+<script>
+    feather.replace()
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://getbootstrap.com/docs/4.0/examples/dashboard/ -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>新闻</title>
+    <!-- Bootstrap core CSS -->
+    <link href="asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="asserts/css/dashboard.css" th:href="@{/asserts/css/dashboard.css}" rel="stylesheet">
+    <style type="text/css">
+        /* Chart.js */
+
+        @-webkit-keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        .chartjs-render-monitor {
+            -webkit-animation: chartjs-render-animation 0.001s;
+            animation: chartjs-render-animation 0.001s;
+        }
+    </style>
+</head>
+
+<body>
+<div th:replace="commons/bar::topbar"></div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="commons/bar::#sidebar(activeUri='main.html')"></div>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <div class="container">
+                <h2><a class="btn btn-sm btn-success" href="soldier" th:href="@{/main.html}">返回</a></h2>
+                <br>
+                <br>
+                <p>第一章　总　　则</p>
+                <p>第一条　为了规范退役士兵安置工作，保障退役士兵的合法权益，根据《中华人民共和国兵役法》，制定本条例。</p>
+                <p>第二条　本条例所称退役士兵，是指依照《中国人民解放军现役士兵服役条例》的规定退出现役的义务兵和士官。</p>
+                <p>第三条　国家建立以扶持就业为主，自主就业、安排工作、退休、供养等多种方式相结合的退役士兵安置制度，妥善安置退役士兵。</p>
+                <p>第四条　全社会应当尊重、优待退役士兵，支持退役士兵安置工作。</p>
+                <p>国家机关、社会团体、企业事业单位，都有接收安置退役士兵的义务，在招收录用工作人员或者聘用职工时，同等条件下应当优先招收录用退役士兵。
+                    退役士兵报考公务员、应聘事业单位职位的，在军队服现役经历视为基层工作经历。接收安置退役士兵的单位，按照国家规定享受优惠政策。</p>
+                <p>第五条　国务院退役士兵安置工作主管部门负责全国的退役士兵安置工作。</p>
+                <p>县级以上地方人民政府退役士兵安置工作主管部门负责本行政区域的退役士兵安置工作。
+
+                    　　人民政府有关部门和军队有关部门应当在各自职责范围内做好退役士兵安置工作。</p>
+                <p>第六条　退役士兵应当遵守有关退役士兵安置的法律法规，服从人民政府的安置。</p>
+                <p>第七条　对在退役士兵安置工作中作出突出贡献的单位和个人，按照国家有关规定给予表彰、奖励。</p>
+                <p>第二章　移交和接收</p>
+                <p>第八条　国务院退役士兵安置工作主管部门和中国人民解放军总参谋部应当制定全国退役士兵的年度移交、接收计划。</p>
+                <p>第九条　退役士兵所在部队应当依照本条例的规定，将退役士兵移交安置地县级以上人民政府退役士兵安置工作主管部门。安置地县级以上人民政府退役士兵安置工作主管部门负责接收退役士兵。</p>
+                <p>第十条　退役士兵安置地为退役士兵入伍时的户口所在地。但是，入伍时是普通高等学校在校学生的退役士兵，退出现役后不复学的，其安置地为入学前的户口所在地。</p>
+                <p>第十一条　退役士兵有下列情形之一的，可以易地安置：
+
+                    　　（一）服现役期间父母户口所在地变更的，可以在父母现户口所在地安置；
+
+                    　　（二）符合军队有关现役士兵结婚规定且结婚满2年的，可以在配偶或者配偶父母户口所在地安置；
+
+                    　　（三）因其他特殊情况，由部队师（旅）级单位出具证明，经省级以上人民政府退役士兵安置工作主管部门批准易地安置的。
+
+                    　　易地安置的退役士兵享受与安置地退役士兵同等安置待遇。</p>
+                <p>第十二条　退役士兵有下列情形之一的，根据本人申请，可以由省级以上人民政府退役士兵安置工作主管部门按照有利于退役士兵生活的原则确定其安置地：</p>
+                <p>第十三条　自主就业的退役士兵应当自被批准退出现役之日起30日内，持退出现役证件、介绍信到安置地县级人民政府退役士兵安置工作主管部门报到。</p>
+                <p>第十四条　退役士兵所在部队应当按照国家档案管理的有关规定，在士兵退役时将其档案及时移交安置地县级以上人民政府退役士兵安置工作主管部门。</p>
+                <p>第十五条　自主就业和安排工作的退役士兵的档案，由安置地退役士兵安置工作主管部门按照国家档案管理有关规定办理。</p>
+                <p>第十六条　退役士兵发生与服役有关的问题，由其原部队负责处理；发生与安置有关的问题，由安置地人民政府负责处理。</p>
+                <p>第十七条　退役士兵无正当理由不按照规定时间报到超过30天的，视为放弃安置待遇。</p>
+            </div>
+
+        </main>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<script type="text/javascript" src="asserts/js/jquery-3.2.1.slim.min.js"
+        th:src="@{/webjars/jquery/3.3.1/jquery.js}"></script>
+<script type="text/javascript" src="asserts/js/popper.min.js"
+        th:src="@{/webjars/popper.js/1.11.1/dist/popper.js}"></script>
+<script type="text/javascript" src="asserts/js/bootstrap.min.js"
+        th:src="@{/webjars/bootstrap/4.0.0/js/bootstrap.js}"></script>
+
+<!-- Icons -->
+<script type="text/javascript" src="asserts/js/feather.min.js" th:src="@{/asserts/js/feather.min.js}"></script>
+<script>
+    feather.replace()
+</script>
+
+
+</body>
+
+</html>

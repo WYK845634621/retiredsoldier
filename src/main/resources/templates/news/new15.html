@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://getbootstrap.com/docs/4.0/examples/dashboard/ -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>新闻</title>
+    <!-- Bootstrap core CSS -->
+    <link href="asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="asserts/css/dashboard.css" th:href="@{/asserts/css/dashboard.css}" rel="stylesheet">
+    <style type="text/css">
+        /* Chart.js */
+
+        @-webkit-keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        .chartjs-render-monitor {
+            -webkit-animation: chartjs-render-animation 0.001s;
+            animation: chartjs-render-animation 0.001s;
+        }
+    </style>
+</head>
+
+<body>
+<div th:replace="commons/bar::topbar"></div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="commons/bar::#sidebar(activeUri='main.html')"></div>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <div class="container">
+                <h2><a class="btn btn-sm btn-success" href="soldier" th:href="@{/main.html}">返回</a></h2>
+                <br>
+                <br>
+                <p>1945年8月15日，日本宣布无条件投降，这对中国来说，十几年艰苦的抗战终于结束了，这是中华民族在近代的首次战争胜利。投降后的日本大部队是陆陆续续坐船回日本了，那这700多万日本士兵回日本后怎么样了呢？大概是因果报应吧，大多数退下来的士兵都很凄惨。
+
+                </p>
+                <p>首先，让我们看看当时还被我国俘虏着的日军战俘吧，他们受到我们的人道处理。首先，我们是将这些战俘当人看的，不仅每天都有吃有喝，我们还对他们嘘寒问暖，有病就看病，甚至还有心理医生辅导他们防止自杀，这样的战俘待遇跟当时的苏联对日军战俘
+                    的待遇简直天壤之别。甚至很多日军都不敢相信，他们被中国俘虏了却没有被虐待。</p>
+                <p>在二战结束后，几百万日军战俘送回日本国内的费用都是我们出的，而且战俘随身携带物品也会让他们自己带走，我们一点都没拿。我们很多行为都让
+                    当时的日军感动不已，可他们的后代，也就是现在有部分日本人依然对我国各种威胁，是否当初我国对日军战俘太好了呢？</p>
+                <p>抗战胜利后，这几百万俘虏就被我们陆续给送往日本国内，所有花费都是我们自己出，送走日军战俘的时候，战俘随身携带的物品都让日军给全部带走了，我们一点都没有拿，那么这些曾经为天皇卖命的日本士兵回国后都得到什么待遇呢？这些退役的士兵在战后生活艰苦，国家早已顾及不到他们了。但也是这种艰苦的环境中
+                    ，日本全国上下忍辱负重，在美国的帮助下，再经过了几十年努力，经济水平不但恢复了还一跃成为亚洲唯一的发达国家。</p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+            </div>
+
+        </main>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<script type="text/javascript" src="asserts/js/jquery-3.2.1.slim.min.js"
+        th:src="@{/webjars/jquery/3.3.1/jquery.js}"></script>
+<script type="text/javascript" src="asserts/js/popper.min.js"
+        th:src="@{/webjars/popper.js/1.11.1/dist/popper.js}"></script>
+<script type="text/javascript" src="asserts/js/bootstrap.min.js"
+        th:src="@{/webjars/bootstrap/4.0.0/js/bootstrap.js}"></script>
+
+<!-- Icons -->
+<script type="text/javascript" src="asserts/js/feather.min.js" th:src="@{/asserts/js/feather.min.js}"></script>
+<script>
+    feather.replace()
+</script>
+
+
+</body>
+
+</html>

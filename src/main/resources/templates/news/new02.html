@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://getbootstrap.com/docs/4.0/examples/dashboard/ -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>新闻</title>
+    <!-- Bootstrap core CSS -->
+    <link href="asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="asserts/css/dashboard.css" th:href="@{/asserts/css/dashboard.css}" rel="stylesheet">
+    <style type="text/css">
+        /* Chart.js */
+
+        @-webkit-keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        .chartjs-render-monitor {
+            -webkit-animation: chartjs-render-animation 0.001s;
+            animation: chartjs-render-animation 0.001s;
+        }
+    </style>
+</head>
+
+<body>
+<div th:replace="commons/bar::topbar"></div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="commons/bar::#sidebar(activeUri='main.html')"></div>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <div class="container">
+                <h2><a class="btn btn-sm btn-success" href="soldier" th:href="@{/main.html}">返回</a></h2>
+                <br>
+                <br>
+                <p>11月27日下午，退役军人事务部召开宣传工作座谈会，退役军人事务部副部长钱锋出席会议并讲话。</p>
+                <p>
+                    钱锋指出，退役军人工作政治性强，关注度高，涉及面广，抓好宣传工作有利于及时传达中央决策部署和关怀厚爱，有利于及时解疑释惑、统一思想认识，有利于集思广益、共同推进退役军人工作。要坚持把做好宣传工作与提升退役军人和其他优抚对象获得感结合起来，与引导激励退役军人鼓舞士气、振奋精神结合起来
+                    ，与实现退役军人工作奋斗目标结合起来，牢固树立工作自信，为做好退役军人工作提供精神力量、创造有利条件。</p>
+                <p>钱锋介绍了退役军人事务部门组织建构、《退役军人保障法》立法、移交安置、信息采集、烈士祭扫等退役军人事务部当前重点工作进展情况。目前，退役军人事务部机构组建已基本完成，各省退役军人事务部门正在抓紧组建。《退役军人保障法》起草工作正在加快推进，即将向社会公开征求意见。退役军人安置工作有序开展，中央单位已超额完成年度军转干部安
+                    置任务，中央企业共提供接收安置退役士兵岗位15000余个，占中央企业年度新招录职工总数的5.2%。信息采集、烈士祭扫等工作也正在稳步推进。</p>
+                <p>钱锋强调，退役军人工作是关系政治安全和社会大局稳定的重要工作，必须牢牢把握正确的政治方向和舆论导向，既要扎扎实实做，也要理直气壮说。做好退役军人工作，离不开军地宣传部门和广大新闻工作者的大力支持，需要深入开展各种宣传引导，及时传达中央的决策部署和关怀厚爱，阐释解读退役军人工作各项政策举措，广泛宣扬退役军人先进典型事迹，激
+                    励广大退役军人争当党的事业的推动者、时代主旋律的弘扬者、社会正能量的传播者，积极营造支持退役军人工作的浓厚社会氛围。</p>
+                <p>会议通报了退役军人事务部成立以来宣传工作的一系列重要举措，包括学习贯彻全国宣传思想工作会议精神、召开退役军人事务部首场新闻发布会、持续搞好政策法规宣传解读、突出抓好“八一”系列宣传活动、开展“最美退役军人”学习宣传活动、抓好部属新闻宣传平台建设和网络舆情引导等工作。</p>
+            </div>
+
+        </main>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<script type="text/javascript" src="asserts/js/jquery-3.2.1.slim.min.js"
+        th:src="@{/webjars/jquery/3.3.1/jquery.js}"></script>
+<script type="text/javascript" src="asserts/js/popper.min.js"
+        th:src="@{/webjars/popper.js/1.11.1/dist/popper.js}"></script>
+<script type="text/javascript" src="asserts/js/bootstrap.min.js"
+        th:src="@{/webjars/bootstrap/4.0.0/js/bootstrap.js}"></script>
+
+<!-- Icons -->
+<script type="text/javascript" src="asserts/js/feather.min.js" th:src="@{/asserts/js/feather.min.js}"></script>
+<script>
+    feather.replace()
+</script>
+
+
+</body>
+
+</html>

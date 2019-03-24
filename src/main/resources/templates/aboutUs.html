@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://getbootstrap.com/docs/4.0/examples/dashboard/ -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>关于我们</title>
+    <!-- Bootstrap core CSS -->
+    <link href="asserts/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="asserts/css/dashboard.css" rel="stylesheet">
+    <style type="text/css">
+        /* Chart.js */
+
+        @-webkit-keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        .chartjs-render-monitor {
+            -webkit-animation: chartjs-render-animation 0.001s;
+            animation: chartjs-render-animation 0.001s;
+        }
+    </style>
+</head>
+
+<body>
+<div th:replace="commons/bar::topbar"></div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="commons/bar::#sidebar(activeUri='aboutUs')"></div>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <div class="container">
+                <div class="row  border-bottom white-bg dashboard-header">
+                    <div class="col-sm-12">
+                        <blockquote class="text-warning" style="font-size:14px">
+                            <h4 class="text-danger">关心退役士兵,我们一直在身边</h4>
+                        </blockquote>
+
+                        <hr>
+                    </div>
+                </div>
+                <div class="row  border-bottom white-bg dashboard-header">
+                    <div class="col-sm-12">
+                        <p>
+                            设计思想:
+                        </p>
+                        <p>
+                            &nbsp;&nbsp;&nbsp;&nbsp;本系统主要是基于退役士兵为主要服务角色展开的，共分为三个子系统：士兵，招聘企业和培训企业。因为增加了部分的权限管理，
+                            所以各个角色都会有相应的限制。
+                        </p>
+                        <p>
+                            &nbsp;&nbsp;&nbsp;&nbsp;首页跟随目前网站的主流，参考了一些优秀的网站比如http://www.tuiyishibing.com/山东省退役士兵就业安置网等,没有账号密码是无法访问本系统的内容。
+                        </p>
+                        <p>
+                            &nbsp;&nbsp;&nbsp;&nbsp;当选择相应的身份进行注册之后，只是拥有了账号密码，并不意味着你的身份通过，还涉及到身份证等其他信息的校准。
+                        </p>
+                        <p>
+                            &nbsp;&nbsp;&nbsp;&nbsp;考虑到招聘企业和培训机构都有可能是企业，所以在企业信息里面可以查看到所有的。
+                        </p>
+                        <p>
+                            &nbsp;&nbsp;&nbsp;&nbsp;由于使用了Spring Security，因此选择记住密码之后会产生一个为期14天的cookie。
+                        </p>
+                        <hr>
+                    </div>
+                </div>
+                <div class="wrapper wrapper-content">
+                    <div class="row">
+                        <div class="col-sm-4">
+
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <h5>联系信息</h5>
+
+                                </div>
+                                <div class="ibox-content">
+                                    <p><i class="fa fa-send-o"></i> 作者：中北大学软件学院2015级王艺楷
+                                    </p>
+                                    <p><i class="fa fa-qq"></i> QQ：<s>1389287</s> <s>1679294</s> <a
+                                            href="http://wpa.qq.com/msgrd?v=3&uin=1263928214&site=qq&menu=yes"
+                                            target="_blank">1263928214</a>
+                                    </p>
+                                    <p><i class="fa fa-weixin"></i> 微信：15235557188
+                                    </p>
+                                    <p><i class="fa fa-credit-card"></i> 电话：同微信
+                                    </p>
+                                    <p><i class="fa location"></i> 住址：上海市浦东新区张江高科技园区亮景路210号
+                                    </p>
+                                    <p><i class="fa location"></i> ps：欢迎开发者骚扰
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <h5>更新日志</h5>
+                                </div>
+                                <div class="ibox-content no-padding">
+                                    <div class="panel-body">
+                                        <div class="panel-group" id="version">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h5 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#version" href="#v32">v1.0.0</a><code
+                                                            class="pull-right">2019.02.24</code>
+                                                    </h5>
+                                                </div>
+                                                <div id="v32" class="panel-collapse collapse in">
+                                                    <div class="panel-body">
+                                                        <ol>
+                                                            <li>没有登录身份时进行拦截</li>
+                                                            <li>Driud连接池的版本问题完善</li>
+                                                            <li>修复频繁的数据库读写</li>
+                                                            <li>登录界面进行中英文切换</li>
+                                                            <li>主页格式校准</li>
+                                                            <li>弹出提示框优化</li>
+                                                            <li>身份认证完善</li>
+                                                            <li>Bootstrap行偏移调整</li>
+                                                            <li>查询sql的bug修复问题</li>
+                                                        </ol>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <h5>技术选型</h5>
+                                </div>
+                                <div class="ibox-content">
+                                    <ol>
+                                        <li>核心框架：Spring Boot。</li>
+                                        <li>安全框架：Spring Security。</li>
+                                        <li>模板引擎：Thymeleaf。</li>
+                                        <li>持久层框架：MyBatis。</li>
+                                        <li>前端框架:Bootstrap。</li>
+                                        <li>数据库连接池：Druid。</li>
+                                        <li>工具类：Fastjson。</li>
+                                        <li>更多……</li>
+                                    </ol>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row  border-bottom white-bg dashboard-header">
+                    <div class="col-sm-12">
+                        <blockquote class="text-warning" style="font-size:14px">
+                        </blockquote>
+
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script type="text/javascript" src="asserts/js/jquery-3.2.1.slim.min.js"></script>
+<script type="text/javascript" src="asserts/js/popper.min.js"></script>
+<script type="text/javascript" src="asserts/js/bootstrap.min.js"></script>
+
+<!-- Icons -->
+<script type="text/javascript" src="asserts/js/feather.min.js"></script>
+<script>
+    feather.replace()
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://getbootstrap.com/docs/4.0/examples/dashboard/ -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>新闻</title>
+    <!-- Bootstrap core CSS -->
+    <link href="asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="asserts/css/dashboard.css" th:href="@{/asserts/css/dashboard.css}" rel="stylesheet">
+    <style type="text/css">
+        /* Chart.js */
+
+        @-webkit-keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        .chartjs-render-monitor {
+            -webkit-animation: chartjs-render-animation 0.001s;
+            animation: chartjs-render-animation 0.001s;
+        }
+    </style>
+</head>
+
+<body>
+<div th:replace="commons/bar::topbar"></div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="commons/bar::#sidebar(activeUri='main.html')"></div>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <div class="container">
+                <h2><a class="btn btn-sm btn-success" href="soldier" th:href="@{/main.html}">返回</a></h2>
+                <br>
+                <br>
+                <p>在关于二战的影视作品中，经常可以看到这样的画面，德国士兵高大英俊，穿着整齐帅气的制服。德军军官，往往是
+                    带点小忧郁，会弹钢琴，参军前要么是老师，要么是艺术家。真实的历史里德国军人真的这么高素质吗？</p>
+                <p>在二战后期,美国进入法国后,逐渐俘虏了一批德国军官.美国人把这些德国军官关押在一个战俘营里,对他们表现的比较优待.美国人认为德国军官具有骑士精神,而且个个都是职业军人,有很高的军事素养和坚强的意志,值得尊敬.
+
+                </p>
+                <p>应该说早期的德军队伍中的确有不少高素质人才，因为日耳曼民族本身在艺术上就有比较多的投入，历史上许多伟大的艺术家就出自这个民族。
+                    而战前德国经济也很发达，所以兵员质量确实相对较高，战争初期横扫欧洲也是仗着这批有文化，身体好的官兵。</p>
+                <p>同时二战初，主要作战方向是西欧，都是同宗的国家。所以对老百姓相对温和，不会像日本人一样烧杀抢掠，甚至德国士兵想要什么物质必须排队用钱购买。当时法国的妇女有些竟觉得这些有礼貌的德国小
+                    伙子比法国男人更像绅士。被占领的巴黎也是井井有条，市民发现除了多了些德国佬生活并没有什么不同。</p>
+                <p>随着战事吃紧，补给品跟不上，加上兵员紧张就必须从农村大量征集士兵，而且战争也不像初期那么顺利，残酷的多，在生存面前，一切都
+                    必须让位。而且主要在苏联作战，对共产主义的仇视，对斯拉夫民族的轻视，使得军队的约束性得不到控制。</p>
+                <p></p>
+                <p></p>
+            </div>
+
+        </main>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<script type="text/javascript" src="asserts/js/jquery-3.2.1.slim.min.js"
+        th:src="@{/webjars/jquery/3.3.1/jquery.js}"></script>
+<script type="text/javascript" src="asserts/js/popper.min.js"
+        th:src="@{/webjars/popper.js/1.11.1/dist/popper.js}"></script>
+<script type="text/javascript" src="asserts/js/bootstrap.min.js"
+        th:src="@{/webjars/bootstrap/4.0.0/js/bootstrap.js}"></script>
+
+<!-- Icons -->
+<script type="text/javascript" src="asserts/js/feather.min.js" th:src="@{/asserts/js/feather.min.js}"></script>
+<script>
+    feather.replace()
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://getbootstrap.com/docs/4.0/examples/dashboard/ -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>新闻</title>
+    <!-- Bootstrap core CSS -->
+    <link href="asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="asserts/css/dashboard.css" th:href="@{/asserts/css/dashboard.css}" rel="stylesheet">
+    <style type="text/css">
+        /* Chart.js */
+
+        @-webkit-keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        .chartjs-render-monitor {
+            -webkit-animation: chartjs-render-animation 0.001s;
+            animation: chartjs-render-animation 0.001s;
+        }
+    </style>
+</head>
+
+<body>
+<div th:replace="commons/bar::topbar"></div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="commons/bar::#sidebar(activeUri='main.html')"></div>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <div class="container">
+                <h2><a class="btn btn-sm btn-success" href="soldier" th:href="@{/main.html}">返回</a></h2>
+                <br>
+                <br>
+                <p>新华社北京10月22日电（记者罗争光）退役军人事务部22日将20名“最美退役军人”候选人名单及简要事迹进行公示，社会公众如对公示对象有异议可实事求是反映情况。</p>
+                <p>根据公示信息，20名“最美退役军人”候选人中，有参与中国海军亚丁湾护航的“北大女兵”宋玺，有替烈士尽孝的退役军人王贵武，有退伍后严守部队秘密隐姓埋名37年的一等功臣吴洪甫，有一辈子做11万多件好事的已故退役军人沈汝波，
+                    有在病故后将器官捐献给5位患者的退役军人胡晨，有退役后创办电商企业并帮助大量退役军人就业创业的陈堃源……</p>
+                <p>“最美退役军人”学习宣传活动由中共中央宣传部、退役军人事务部联合部署开展，旨在推出一批积极响应党的号召、在经济社会建设各个领域取得明显成就、作出突出贡献的优秀退役军人典型,充分展示退役军人永葆本色、奋发图强的优
+                    秀品质和良好精神风貌,动员广大退役军人倍加珍惜荣誉、积极投身国家建设发展。</p>
+                <p>据介绍，活动开展以来，各地推荐了67名人选。按照优中选优、弘扬社会主旋律、体现军人本色的原则，主办方从中遴选了20名“最美退役军人”候选人。此次公示期限为5天，公示期间对公示对象有异议，可致电反映。</p>
+            </div>
+
+        </main>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<script type="text/javascript" src="asserts/js/jquery-3.2.1.slim.min.js"
+        th:src="@{/webjars/jquery/3.3.1/jquery.js}"></script>
+<script type="text/javascript" src="asserts/js/popper.min.js"
+        th:src="@{/webjars/popper.js/1.11.1/dist/popper.js}"></script>
+<script type="text/javascript" src="asserts/js/bootstrap.min.js"
+        th:src="@{/webjars/bootstrap/4.0.0/js/bootstrap.js}"></script>
+
+<!-- Icons -->
+<script type="text/javascript" src="asserts/js/feather.min.js" th:src="@{/asserts/js/feather.min.js}"></script>
+<script>
+    feather.replace()
+</script>
+
+
+</body>
+
+</html>
