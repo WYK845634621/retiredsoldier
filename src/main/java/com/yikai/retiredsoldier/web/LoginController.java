@@ -48,22 +48,22 @@ public class LoginController {
         User user = new User();
         try {
             EntityWrapper<User> wrapper = new EntityWrapper<>();
-            wrapper.eq("username",username);
-            if (userService.selectOne(wrapper) == null){
+            wrapper.eq("username", username);
+            if (userService.selectOne(wrapper) == null) {
                 map.put("msg", "用户名输入错误");
                 return "login";
             }
-            user =userService.selectOne(wrapper);
+            user = userService.selectOne(wrapper);
             if (!StringUtils.isEmpty(username) && user.getPassword().equals(password)) {
-                session.setAttribute("loginUser",username);
+                session.setAttribute("loginUser", username);
                 //使用和重定向解决表单重复提交的问题
                 return "redirect:/main.html";
             } else {
                 map.put("msg", "密码输入错误");
                 return "login";
             }
-        }catch (Exception e){
-            logger.error("error in LoginController.login",e);
+        } catch (Exception e) {
+            logger.error("error in LoginController.login", e);
         }
         return "login";
     }
@@ -72,15 +72,15 @@ public class LoginController {
      * @Date:2019/2/19 9:00 @Auth:yikai.wang @Desc(V/B):〈跳转到注册页〉
      */
     @GetMapping("/user/register")
-    public String toRegisterPage(Model model){
+    public String toRegisterPage(Model model) {
         try {
 
             List<Identity> identities = identityService.selectList(null);
-            if (!CollectionUtils.isEmpty(identities)){
-                model.addAttribute("identities",identities);
+            if (!CollectionUtils.isEmpty(identities)) {
+                model.addAttribute("identities", identities);
             }
-        }catch (Exception e){
-            logger.error("error in LoginController.toRegisterPage",e);
+        } catch (Exception e) {
+            logger.error("error in LoginController.toRegisterPage", e);
         }
         return "user/regist";
     }
@@ -89,23 +89,38 @@ public class LoginController {
      * @Date:2019/2/19 9:01 @Auth:yikai.wang @Desc(V/B):〈进行注册〉
      */
     @PostMapping("/user")
-    public String register(User user){
+    public String register(User user) {
         Soldier soldier = new Soldier();
         Administrator administrator = new Administrator();
         Business business = new Business();
         try {
-            if (user != null){
+            if (user != null) {
                 user.setCreateTime(new Date());
                 userService.insert(user);
             }
             //在创建登录名密码的同时,根据角色信息新建角色
-            switch (user.getIdentity()){
-                case "退役士兵":    soldier.setUserId(user.getId()); soldier.setCreateTime(new Date());    soldier.setDataStatus(1);  soldierService.insert(soldier);   break;
-                case "企业":    business.setUserId(user.getId()); business.setCreateTime(new Date());    business.setDataStatus(1);  businessService.insert(business);   break;
-                case "管理员":    administrator.setUserId(user.getId()); administrator.setCreateTime(new Date());    administrator.setDataStatus(1);  administratorService.insert(administrator);   break;
+            switch (user.getIdentity()) {
+                case "退役士兵":
+                    soldier.setUserId(user.getId());
+                    soldier.setCreateTime(new Date());
+                    soldier.setDataStatus(1);
+                    soldierService.insert(soldier);
+                    break;
+                case "企业":
+                    business.setUserId(user.getId());
+                    business.setCreateTime(new Date());
+                    business.setDataStatus(1);
+                    businessService.insert(business);
+                    break;
+                case "管理员":
+                    administrator.setUserId(user.getId());
+                    administrator.setCreateTime(new Date());
+                    administrator.setDataStatus(1);
+                    administratorService.insert(administrator);
+                    break;
             }
-        }catch (Exception e){
-            logger.error("error in LoginController.register",e);
+        } catch (Exception e) {
+            logger.error("error in LoginController.register", e);
         }
         return "/login";
     }
@@ -115,7 +130,7 @@ public class LoginController {
      * @Date:2019/2/19 9:01 @Auth:yikai.wang @Desc(V/B):〈点击注销,跳转首页〉
      */
     @GetMapping("/user/logout")
-    public String logout(){
+    public String logout() {
         return "/login";
     }
 

@@ -84,8 +84,6 @@ public class MybatisPlusConfig {
 //    }
 
 
-
-
     /**
      * mybatis-plus分页插件<br>
      * 文档：http://mp.baomidou.com<br>
@@ -143,9 +141,8 @@ public class MybatisPlusConfig {
     }
 
 
-
     @Bean
-    public MetaObjectHandler metaObjectHandler(){
+    public MetaObjectHandler metaObjectHandler() {
         return new MyMetaObjectHandler();
     }
 
@@ -153,7 +150,7 @@ public class MybatisPlusConfig {
      * 注入主键生成器
      */
     @Bean
-    public IKeyGenerator keyGenerator(){
+    public IKeyGenerator keyGenerator() {
         return new H2KeyGenerator();
     }
 

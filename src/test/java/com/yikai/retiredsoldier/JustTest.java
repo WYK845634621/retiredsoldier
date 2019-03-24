@@ -12,7 +12,7 @@ import java.util.Hashtable;
  */
 public class JustTest {
     @Test
-    public void test(){
+    public void test() {
         System.out.println("ok");
     }
 
@@ -20,8 +20,8 @@ public class JustTest {
         ThreadDemo threadDemo = new ThreadDemo();
         new Thread(threadDemo).start();
 
-        while (true){
-            if (threadDemo.isFlag()){
+        while (true) {
+            if (threadDemo.isFlag()) {
                 System.out.println("==========");
                 break;
             }
@@ -29,7 +29,7 @@ public class JustTest {
     }
 
     @Test
-    public void test2(){
+    public void test2() {
         ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
 
         int i = 10;
@@ -39,9 +39,9 @@ public class JustTest {
     }
 
     @Test
-    public void test3(){
+    public void test3() {
         Hashtable<String, String> hashtable = new Hashtable<>();
-        hashtable.put("王艺楷","王艺楷");
+        hashtable.put("王艺楷", "王艺楷");
         hashtable.isEmpty();
 
     }

@@ -13,7 +13,7 @@ import java.io.Serializable;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author yikai.wang
@@ -42,11 +42,11 @@ public class Administrator implements Serializable {
     private Integer dataStatus;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     @JSONField(format = "yyyy-MM-dd HH:mm:ss")
-    @TableField(value="create_time")
+    @TableField(value = "create_time")
     private Date createTime;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     @JSONField(format = "yyyy-MM-dd HH:mm:ss")
-    @TableField(value="modify_time")
+    @TableField(value = "modify_time")
     private Date modifyTime;
 
 
@@ -165,20 +165,20 @@ public class Administrator implements Serializable {
     @Override
     public String toString() {
         return "Administrator{" +
-        ", id=" + id +
-        ", userId=" + userId +
-        ", name=" + name +
-        ", age=" + age +
-        ", gender=" + gender +
-        ", phone=" + phone +
-        ", email=" + email +
-        ", idCard=" + idCard +
-        ", nationality=" + nationality +
-        ", nation=" + nation +
-        ", location=" + location +
-        ", dataStatus=" + dataStatus +
-        ", createTime=" + createTime +
-        ", modifyTime=" + modifyTime +
-        "}";
+                ", id=" + id +
+                ", userId=" + userId +
+                ", name=" + name +
+                ", age=" + age +
+                ", gender=" + gender +
+                ", phone=" + phone +
+                ", email=" + email +
+                ", idCard=" + idCard +
+                ", nationality=" + nationality +
+                ", nation=" + nation +
+                ", location=" + location +
+                ", dataStatus=" + dataStatus +
+                ", createTime=" + createTime +
+                ", modifyTime=" + modifyTime +
+                "}";
     }
 }

@@ -30,7 +30,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
     //所有的WebMvcConfigurerAdapter组件都会一起起作用
     @Bean //将组件注册在容器
-    public WebMvcConfigurerAdapter webMvcConfigurerAdapter(){
+    public WebMvcConfigurerAdapter webMvcConfigurerAdapter() {
         WebMvcConfigurerAdapter adapter = new WebMvcConfigurerAdapter() {
             @Override
             public void addViewControllers(ViewControllerRegistry registry) {
@@ -51,7 +51,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
                 //SpringBoot已经做好了静态资源映射
                 registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
                         //不拦截的
-                        .excludePathPatterns("/index.html","index","/","/user/**","/asserts/**","/webjars/**");
+                        .excludePathPatterns("/index.html", "index", "/", "/user/**", "/asserts/**", "/webjars/**","/druid/**");
             }
         };
         return adapter;
@@ -61,7 +61,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
      * @Date:2019/2/16 16:29 @Auth:yikai.wang @Desc(V/B):〈区域解析〉
      */
     @Bean
-    public LocaleResolver localeResolver(){
+    public LocaleResolver localeResolver() {
         return new MyLocaleResolver();
     }
 

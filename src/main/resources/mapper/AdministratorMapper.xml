@@ -5,25 +5,26 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.yikai.retiredsoldier.entity.Administrator">
-        <id column="id" property="id" />
-        <result column="user_id" property="userId" />
-        <result column="name" property="name" />
-        <result column="age" property="age" />
-        <result column="gender" property="gender" />
-        <result column="phone" property="phone" />
-        <result column="email" property="email" />
-        <result column="id_card" property="idCard" />
-        <result column="nationality" property="nationality" />
-        <result column="nation" property="nation" />
-        <result column="location" property="location" />
-        <result column="data_status" property="dataStatus" />
-        <result column="create_time" property="createTime" />
-        <result column="modify_time" property="modifyTime" />
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="name" property="name"/>
+        <result column="age" property="age"/>
+        <result column="gender" property="gender"/>
+        <result column="phone" property="phone"/>
+        <result column="email" property="email"/>
+        <result column="id_card" property="idCard"/>
+        <result column="nationality" property="nationality"/>
+        <result column="nation" property="nation"/>
+        <result column="location" property="location"/>
+        <result column="data_status" property="dataStatus"/>
+        <result column="create_time" property="createTime"/>
+        <result column="modify_time" property="modifyTime"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, user_id, name, age, gender, phone, email, id_card, nationality, nation, location, data_status, create_time, modify_time
+        id, user_id, name, age, gender, phone, email, id_card, nationality, nation, location, data_status, create_time,
+        modify_time
     </sql>
 
 </mapper>

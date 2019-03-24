@@ -2,7 +2,7 @@ package com.yikai.retiredsoldier.Vo;
 
 import java.io.Serializable;
 
-public class ParamVo<P, C> implements Serializable{
+public class ParamVo<P, C> implements Serializable {
 
     private static final long serialVersionUID = 1L;
     // 请求的页码信息
@@ -25,7 +25,6 @@ public class ParamVo<P, C> implements Serializable{
     public void setCondition(C condition) {
         this.condition = condition;
     }
-
 
 
 }

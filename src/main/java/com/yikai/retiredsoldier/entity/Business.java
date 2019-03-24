@@ -1,14 +1,16 @@
 package com.yikai.retiredsoldier.entity;
 
 import java.util.Date;
+
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.IdType;
+
 import java.io.Serializable;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author yikai.wang
@@ -337,34 +339,34 @@ public class Business implements Serializable {
     @Override
     public String toString() {
         return "Business{" +
-        ", id=" + id +
-        ", userId=" + userId +
-        ", identityId=" + identityId +
-        ", name=" + name +
-        ", age=" + age +
-        ", phone=" + phone +
-        ", email=" + email +
-        ", location=" + location +
-        ", job=" + job +
-        ", jobDescribe=" + jobDescribe +
-        ", requirement=" + requirement +
-        ", salary=" + salary +
-        ", idCard=" + idCard +
-        ", contact=" + contact +
-        ", nationality=" + nationality +
-        ", nation=" + nation +
-        ", trade=" + trade +
-        ", kind=" + kind +
-        ", dataStatus=" + dataStatus +
-        ", createTime=" + createTime +
-        ", modifyTime=" + modifyTime +
-        ", trainProject=" + trainProject +
-        ", cost=" + cost +
-        ", trainTime=" + trainTime +
-        ", trainArea=" + trainArea +
-        ", trainPhone=" + trainPhone +
-        ", advantage=" + advantage +
-        ", trainId=" + trainId +
-        "}";
+                ", id=" + id +
+                ", userId=" + userId +
+                ", identityId=" + identityId +
+                ", name=" + name +
+                ", age=" + age +
+                ", phone=" + phone +
+                ", email=" + email +
+                ", location=" + location +
+                ", job=" + job +
+                ", jobDescribe=" + jobDescribe +
+                ", requirement=" + requirement +
+                ", salary=" + salary +
+                ", idCard=" + idCard +
+                ", contact=" + contact +
+                ", nationality=" + nationality +
+                ", nation=" + nation +
+                ", trade=" + trade +
+                ", kind=" + kind +
+                ", dataStatus=" + dataStatus +
+                ", createTime=" + createTime +
+                ", modifyTime=" + modifyTime +
+                ", trainProject=" + trainProject +
+                ", cost=" + cost +
+                ", trainTime=" + trainTime +
+                ", trainArea=" + trainArea +
+                ", trainPhone=" + trainPhone +
+                ", advantage=" + advantage +
+                ", trainId=" + trainId +
+                "}";
     }
 }

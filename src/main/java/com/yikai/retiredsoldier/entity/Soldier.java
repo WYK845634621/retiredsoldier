@@ -13,7 +13,7 @@ import java.io.Serializable;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author yikai.wang
@@ -81,11 +81,11 @@ public class Soldier implements Serializable {
     private Integer dataStatus;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     @JSONField(format = "yyyy-MM-dd HH:mm:ss")
-    @TableField(value="create_time")
+    @TableField(value = "create_time")
     private Date createTime;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     @JSONField(format = "yyyy-MM-dd HH:mm:ss")
-    @TableField(value="modify_time")
+    @TableField(value = "modify_time")
     private Date modifyTime;
 
 

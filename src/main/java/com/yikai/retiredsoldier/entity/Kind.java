@@ -5,11 +5,12 @@ import com.baomidou.mybatisplus.enums.IdType;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.enums.IdType;
+
 import java.io.Serializable;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author yikai.wang
@@ -44,8 +45,8 @@ public class Kind implements Serializable {
     @Override
     public String toString() {
         return "Kind{" +
-        ", id=" + id +
-        ", name=" + name +
-        "}";
+                ", id=" + id +
+                ", name=" + name +
+                "}";
     }
 }

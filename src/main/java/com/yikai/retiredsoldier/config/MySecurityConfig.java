@@ -42,9 +42,12 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 
         //定制请求的授权规则
         http.authorizeRequests().antMatchers("/").permitAll()
+                .antMatchers("/druid/**").permitAll()
                 .antMatchers("/soldier/**").hasRole("退役士兵")
-                .antMatchers("/business/**").hasRole("企业")
-                .antMatchers("/administrator/**").hasRole("管理员");
+                .antMatchers("/business/**", "/recruit/**", "/train/**").hasRole("企业")
+                .antMatchers("/administrator/**").hasRole("管理员")
+                //对druid关闭CSRF
+        .and().csrf().ignoringAntMatchers("/druid/**");
 
 
         //开启自动配置的的登录功能`默认请求的是/login  如果没有权限就会跳到springsecurity的登录页面
@@ -68,9 +71,8 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
         /**
          * @Date:2019/2/18 10:24 @Auth:yikai.wang @Desc(V/B):〈这里要注意 spring security新增了多重加密方式,所以密码要采用一种加密进行存储〉
          */
-        auth.inMemoryAuthentication().passwordEncoder(new BCryptPasswordEncoder()).withUser("default").password(new BCryptPasswordEncoder().encode("default")).roles("退役士兵","企业")
+        auth.inMemoryAuthentication().passwordEncoder(new BCryptPasswordEncoder()).withUser("default").password(new BCryptPasswordEncoder().encode("default")).roles("退役士兵", "企业")
                 .and().passwordEncoder(new BCryptPasswordEncoder()).withUser("soldier").password(new BCryptPasswordEncoder().encode("soldier")).roles("退役士兵");
-
 
 
         //auth.userDetailsService(customUserService()); //user Details Service验证

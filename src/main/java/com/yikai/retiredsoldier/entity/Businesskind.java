@@ -4,11 +4,12 @@ import com.baomidou.mybatisplus.enums.IdType;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.enums.IdType;
+
 import java.io.Serializable;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author yikai.wang
@@ -42,8 +43,8 @@ public class Businesskind implements Serializable {
     @Override
     public String toString() {
         return "Businesskind{" +
-        ", id=" + id +
-        ", name=" + name +
-        "}";
+                ", id=" + id +
+                ", name=" + name +
+                "}";
     }
 }
