@@ -27,8 +27,8 @@ public class InsertTask {
     @Autowired
     private SoldierService soldierService;
 
-    @Scheduled(cron = "0/10 * * * * ?")
-//    @Scheduled(cron = "0 */15 * * * ?")
+//    @Scheduled(cron = "0/10 * * * * ?")
+    @Scheduled(cron = "0 */15 * * * ?")
     public void insertBusiness(){
         Business business = new Business();
         StringBuffer busName = new StringBuffer();
@@ -66,6 +66,7 @@ public class InsertTask {
         business.setCost(flag);
         business.setAdvantage("薪资高待遇好");
         business.setCreateTime(new Date());
+        business.setIdCard(String.valueOf(Math.random()+18));
 
         businessService.insert(business);
 
