@@ -64,7 +64,7 @@ public class SoldierController {
 //            soldier.setAge((int) (Math.random()*10));
 //            soldier.setCreateTime(new Date());
 //            soldierService.insert(soldier);
-            Page<Soldier> page = new Page<>(pn, 1);
+            Page<Soldier> page = new Page<>(pn, 10);
             page = soldierService.selectPage(page, null);
             if (!CollectionUtils.isEmpty(page.getRecords())) {
                 model.addAttribute("page", page);
