@@ -185,7 +185,7 @@ public class BusinessController {
         List<Business> recruits = null;
         try {
             EntityWrapper<Business> wrapper = new EntityWrapper<>();
-            Page<Business> page = new Page<>(pn, 1);
+            Page<Business> page = new Page<>(pn, 10);
             wrapper.eq("data_status", "2");
             if (!CollectionUtils.isEmpty(businessService.selectList(wrapper))) {
                 page = businessService.selectPage(page, wrapper);
