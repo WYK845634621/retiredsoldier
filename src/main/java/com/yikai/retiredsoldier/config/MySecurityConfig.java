@@ -1,9 +1,16 @@
 package com.yikai.retiredsoldier.config;
 
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.yikai.retiredsoldier.entity.User;
+import com.yikai.retiredsoldier.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
@@ -13,6 +20,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
  */
 @EnableWebSecurity
 public class MySecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    private UserService userService;
 
     //下面都是不会用的东西,日后研究
 //    @Autowired
@@ -52,7 +62,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 
         //开启自动配置的的登录功能`默认请求的是/login  如果没有权限就会跳到springsecurity的登录页面
         http.formLogin();
-        //http.formLogin().loginPage("/login");
+//        http.formLogin().loginPage("/login");
 
 
         //开启自动配置的注销功能   注销后回到登录页
@@ -74,6 +84,14 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
         auth.inMemoryAuthentication().passwordEncoder(new BCryptPasswordEncoder()).withUser("default").password(new BCryptPasswordEncoder().encode("default")).roles("退役士兵", "企业")
                 .and().passwordEncoder(new BCryptPasswordEncoder()).withUser("soldier").password(new BCryptPasswordEncoder().encode("soldier")).roles("退役士兵");
 
+//        auth.userDetailsService(new UserDetailsService() {
+//            @Override
+//            public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
+//                EntityWrapper<User> wrapper = new EntityWrapper<>();
+//                wrapper.eq("username",name);
+//                return userService.selectOne(wrapper);
+//            }
+//        }).passwordEncoder(new BCryptPasswordEncoder());
 
         //auth.userDetailsService(customUserService()); //user Details Service验证
     }

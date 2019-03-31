@@ -49,14 +49,20 @@
         <div th:replace="commons/bar::#sidebar"></div>
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-            <div class="container">
-                <h1>抱歉....客户端错误....[[${status}]]</h1>
+            <div class="container text-warning" th:style="'background-image: url('+@{/asserts/img/404.jpg}+');background-size: cover;'">
+                <h2 style="font-family: 幼圆">抱歉....仿佛出现了一些错误....</h2>
                 <blockquote class="blockquote">
                     <p>[[${error}]]</p>
                     <p>[[${message}]]</p>
                     <p>[[${timestamp}]]</p>
                     <footer class="blockquote-footer">善意的开发者留言</footer>
                 </blockquote>
+                <p><br><br><br></p>
+                <p><br><br><br></p>
+                <p><br><br><br></p>
+                <p><br><br><br></p>
+                <p class="float-md-right"><a href="#" th:href="@{/main.html}" class="text-light">返回主页</a></p>
+                <p><br><br><br></p>
             </div>
         </main>
     </div>
