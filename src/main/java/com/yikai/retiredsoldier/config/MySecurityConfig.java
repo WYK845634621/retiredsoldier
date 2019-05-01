@@ -81,7 +81,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
         /**
          * @Date:2019/2/18 10:24 @Auth:yikai.wang @Desc(V/B):〈这里要注意 spring security新增了多重加密方式,所以密码要采用一种加密进行存储〉
          */
-        auth.inMemoryAuthentication().passwordEncoder(new BCryptPasswordEncoder()).withUser("default").password(new BCryptPasswordEncoder().encode("default")).roles("退役士兵", "企业")
+        auth.inMemoryAuthentication().passwordEncoder(new BCryptPasswordEncoder()).withUser("root").password(new BCryptPasswordEncoder().encode("root")).roles("退役士兵", "企业","管理员")
                 .and().passwordEncoder(new BCryptPasswordEncoder()).withUser("soldier").password(new BCryptPasswordEncoder().encode("soldier")).roles("退役士兵");
 
 //        auth.userDetailsService(new UserDetailsService() {

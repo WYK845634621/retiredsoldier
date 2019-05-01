@@ -27,8 +27,8 @@ public class InsertTask {
     @Autowired
     private SoldierService soldierService;
 
-//    @Scheduled(cron = "0/10 * * * * ?")
-    @Scheduled(cron = "0 */15 * * * ?")
+//    @Scheduled(cron = "0/15 * * * * ?")
+//    @Scheduled(cron = "0 */15 * * * ?")
     public void insertBusiness(){
         Business business = new Business();
         StringBuffer busName = new StringBuffer();

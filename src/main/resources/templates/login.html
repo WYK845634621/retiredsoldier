@@ -12,10 +12,10 @@
     <link href="asserts/css/signin.css" th:href="@{/asserts/css/signin.css}" rel="stylesheet">
 </head>
 
-<body class="text-center" style="background-image: url('http://pic.netbian.com/uploads/allimg/180805/162957-15334577973962.jpg'); background-size: cover">
+<body class="text-center" style="background-image: url('http://pic.netbian.com/uploads/allimg/190227/212247-1551273767e192.jpg'); background-size: cover">
 
 <form class="form-signin" action="dashboard.html" th:action="@{/user/login}" method="post">
-    <img class="mb-4" th:src="@{/asserts/img/logo.jpg}" src="asserts/img/logo.jpg" alt="" width="72" height="72">
+    <img class="mb-4" th:src="@{/asserts/img/lo3.jpg}" src="asserts/img/lo3.jpg" alt="" width="72" height="72">
     <h1 class="h3 mb-3 font-weight-normal" th:text="#{login.tip}">Please sign in</h1>
     <!--判断-->
     <p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
@@ -25,17 +25,17 @@
     <label class="sr-only" th:text="#{login.password}">Password</label>
     <input type="password" name="password" class="form-control" placeholder="Password"
            th:placeholder="#{login.password}" required="">
-    <div class="checkbox mb-3">
+    <div class="checkbox mb-3 text-light">
         <label>
             <input type="checkbox" name="rem" value="remember-me"/> [[#{login.remember}]]
         </label>
     </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit" th:text="#{login.btn}">Sign in</button>
     <br>
-    <a th:href="@{/user/register}">Click To Register &raquo;</a>
-    <p class="mt-5 mb-3 text-muted">© 2019-2020</p>
-    <a class="btn btn-sm" th:href="@{/index.html(l='zh_CN')}">中文</a>
-    <a class="btn btn-sm" th:href="@{/index.html(l='en_US')}">English</a>
+    <a th:href="@{/user/register}" class="text-warning">Click To Register &raquo;</a>
+    <p class="mt-5 mb-3 text-light">© 2019-2020</p>
+    <a class="btn btn-sm text-white" th:href="@{/index.html(l='zh_CN')}">中文</a>
+    <a class="btn btn-sm text-white" th:href="@{/index.html(l='en_US')}">English</a>
 </form>
 
 </body>

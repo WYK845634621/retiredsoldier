@@ -10,6 +10,7 @@ import com.yikai.retiredsoldier.entity.ExcelPropertyIndexModelSoldier;
 import com.yikai.retiredsoldier.entity.Soldier;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.util.StringUtils;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -62,7 +63,13 @@ public class ExcelUtil {
             SimpleDateFormat dateFormat =new SimpleDateFormat("yyyy-mm-dd  HH:mm:ss");
             List<List<String>> dateList = new ArrayList<>();
             for (int i = 0; i < logs.size(); i++) {
+                if (logs.get(i) == null){
+                    continue;
+                }
                 Business business = logs.get(i);
+                if (StringUtils.isEmpty(business.getCreateTime())){
+                    continue;
+                }
                 dateList.add(Arrays.asList(
                         "NO." + (i + 1),
                         business.getName(),
@@ -137,7 +144,14 @@ public class ExcelUtil {
             SimpleDateFormat dateFormat =new SimpleDateFormat("yyyy-mm-dd  HH:mm:ss");
             List<List<String>> dateList = new ArrayList<>();
             for (int i = 0; i < logs.size(); i++) {
+                if (logs.get(i) == null){
+                    continue;
+                }
                 Soldier soldier = logs.get(i);
+                if (StringUtils.isEmpty(soldier.getCreateTime())){
+                    continue;
+                }
+
                 dateList.add(Arrays.asList(
                         soldier.getId().substring(0,15),
                         soldier.getName(),
