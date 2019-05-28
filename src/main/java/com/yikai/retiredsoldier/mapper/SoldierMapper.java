@@ -2,7 +2,10 @@ package com.yikai.retiredsoldier.mapper;
 
 import com.yikai.retiredsoldier.entity.Soldier;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * <p>
@@ -15,4 +18,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface SoldierMapper extends BaseMapper<Soldier> {
 
+//    List<Soldier> selectBatchSoldiers(@Param(value="soldiersIds")List<String> soldiersIds);
 }

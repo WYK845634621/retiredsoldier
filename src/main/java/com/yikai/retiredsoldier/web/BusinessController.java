@@ -5,7 +5,11 @@ import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.plugins.pagination.PageHelper;
 import com.yikai.retiredsoldier.entity.Business;
+import com.yikai.retiredsoldier.entity.BusinessSoldier;
 import com.yikai.retiredsoldier.entity.Businesskind;
+import com.yikai.retiredsoldier.entity.Soldier;
+import com.yikai.retiredsoldier.mapper.BusinessSoldierMapper;
+import com.yikai.retiredsoldier.mapper.SoldierMapper;
 import com.yikai.retiredsoldier.service.BusinessService;
 import com.yikai.retiredsoldier.service.BusinesskindService;
 import com.yikai.retiredsoldier.util.ExcelUtil;
@@ -19,6 +23,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -161,6 +166,10 @@ public class BusinessController {
         return "redirect:/businesses";
     }
 
+    /**
+     * @Note: 目前正在使用的
+     * @Date:2019/5/26 13:19 @Auth:yikai.wang @Desc(V/B):〈〉
+     */
     //使用超链接的方式进行删除
     @GetMapping("/business/delete/{id}")
     public String delete(@PathVariable("id") String id) {
@@ -283,6 +292,44 @@ public class BusinessController {
     }
 
 
+    @GetMapping("/recruit/info/{id}")
+    public String toInfoRecruit(@PathVariable("id") String id, Model model) {
+        try {
+            List<String> soldiersIds = new ArrayList<>();
+            List<Soldier> soldiers = new ArrayList<>();
+            if (!StringUtils.isEmpty(id)) {
+                EntityWrapper<BusinessSoldier> wrapper = new EntityWrapper<>();
+                wrapper.eq("business_id",   id);
+                //2招聘
+                wrapper.eq("data_status",2);
+                soldiersIds = businessSoldierMapper.findSoldiersIdsById2(id);
+            }
+            if (!CollectionUtils.isEmpty(soldiersIds)){
+                //soldiers = soldierMapper.selectBatchSoldiers(soldiersIds);
+                for (int i = 0; i < soldiersIds.size(); i++) {
+                    String soldierId = soldiersIds.get(i);
+                    Soldier soldier = soldierMapper.selectById(soldierId);
+                    if (soldier == null){
+                        continue;
+                    }
+                    soldiers.add(soldier);
+                }
+            }
+            System.out.println(soldiers.size());
+            System.out.println(soldiers.size());
+            System.out.println(soldiers.size());
+            System.out.println(soldiers.size());
+            System.out.println(soldiers.size());
+            model.addAttribute("soldiers",soldiers);
+        } catch (Exception e) {
+            logger.error("error in BusinessController.toInfoRecruit", e);
+        }
+        return "recruit/soldierlist";
+    }
+
+
+
+
     //=======================================================================以下为培训服务的内容=================================
 
     /**
@@ -393,6 +440,46 @@ public class BusinessController {
             logger.error("error in BusinessController.deleteTrain", e);
         }
         return "redirect:/trains";
+    }
+
+    @Autowired
+    private BusinessSoldierMapper businessSoldierMapper;
+    @Autowired
+    private SoldierMapper soldierMapper;
+
+    @GetMapping("/train/info/{id}")
+    public String toInfoTrain(@PathVariable("id") String id, Model model) {
+        try {
+            List<String> soldiersIds = new ArrayList<>();
+            List<Soldier> soldiers = new ArrayList<>();
+            if (!StringUtils.isEmpty(id)) {
+                EntityWrapper<BusinessSoldier> wrapper = new EntityWrapper<>();
+                wrapper.eq("business_id",   id);
+                //3培训
+                wrapper.eq("data_status",3);
+                soldiersIds = businessSoldierMapper.findSoldiersIdsById(id);
+            }
+            if (!CollectionUtils.isEmpty(soldiersIds)){
+                //soldiers = soldierMapper.selectBatchSoldiers(soldiersIds);
+                for (int i = 0; i < soldiersIds.size(); i++) {
+                    String soldierId = soldiersIds.get(i);
+                    Soldier soldier = soldierMapper.selectById(soldierId);
+                    if (soldier == null){
+                        continue;
+                    }
+                    soldiers.add(soldier);
+                }
+            }
+            System.out.println(soldiers.size());
+            System.out.println(soldiers.size());
+            System.out.println(soldiers.size());
+            System.out.println(soldiers.size());
+            System.out.println(soldiers.size());
+            model.addAttribute("soldiers",soldiers);
+        } catch (Exception e) {
+            logger.error("error in BusinessController.toInfoTrain", e);
+        }
+        return "train/soldierlist";
     }
 
 

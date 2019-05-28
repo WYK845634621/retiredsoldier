@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yikai.retiredsoldier.mapper.BusinessSoldierMapper">
+
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.yikai.retiredsoldier.entity.BusinessSoldier">
+        <id column="id" property="id" />
+        <result column="business_id" property="businessId" />
+        <result column="soldier_id" property="soldierId" />
+        <result column="data_status" property="dataStatus" />
+        <result column="create_time" property="createTime" />
+        <result column="modify_time" property="modifyTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, business_id, soldier_id, data_status, create_time, modify_time
+    </sql>
+
+    <select id="findSoldiersIdsById" parameterType="string" resultType="java.lang.String">
+        select soldier_id from business_soldier where business_id=#{id} and data_status=3
+    </select>
+    <select id="findSoldiersIdsById2" parameterType="string" resultType="java.lang.String">
+        select soldier_id from business_soldier where business_id=#{id} and data_status=2
+    </select>
+
+    <!--<select id="selectBatchSoldiers" parameterType="java.util.List" resultType="com.yikai.retiredsoldier.entity.Soldier">-->
+        <!--select name from soldier where data_status>0 and id in-->
+        <!--<foreach collection="soldiersIds" open="(" close=")" separator="," item="item">-->
+            <!--#{item}-->
+        <!--</foreach>-->
+    <!--</select>-->
+
+</mapper>

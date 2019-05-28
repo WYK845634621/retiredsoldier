@@ -79,6 +79,7 @@
                         <td>
                             <a class="btn btn-sm btn-primary" th:href="@{/recruit/}+${business.id}">编辑</a>
                             <a class="btn btn-sm btn-danger" th:href="@{/recruit/delete/}+${business.id}">删除</a>
+                            <a class="btn btn-sm btn-info" th:href="@{/recruit/info/}+${business.id}">统计</a>
                             <!--下面的这种删除方法会报错	所以用超链接的方式 -->
                             <!--<button th:attr="del_uri=@{/business/}+${business.id}" class="btn btn-sm btn-danger deleteBtn2">删除</button>-->
                         </td>

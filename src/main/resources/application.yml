@@ -1,5 +1,5 @@
 server:
-  port: 80
+  port: 8080
 
 spring:
   datasource:
@@ -32,7 +32,7 @@ spring:
         client:
           url: http://localhost:8769
           instance:
-            name: retiredsoldier
+            name: retiredsoldier-server
 #          暴露所有
 management:
   endpoints:
